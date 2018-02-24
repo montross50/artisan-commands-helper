@@ -14,7 +14,7 @@ abstract class BaseCommand extends Command
     {
         $this->signature = config('ach.namespace') . ':' . $this->signature;
         $this->docker = config('ach.docker_path');
-        $this->dockerCompose = config('ach.docker_path');
+        $this->dockerCompose = config('ach.docker_compose_path');
         $this->composer = config('ach.composer_path');
         parent::__construct();
     }
