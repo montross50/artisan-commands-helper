@@ -42,6 +42,6 @@ class DockerUp extends BaseCommand
         $options = implode(" ", $arguments);
         $cmd = $this->dockerCompose . ' up '.$options;
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

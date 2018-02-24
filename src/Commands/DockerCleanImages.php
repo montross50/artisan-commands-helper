@@ -37,6 +37,6 @@ class DockerCleanImages extends BaseCommand
     {
         $cmd = $this->docker . ' rmi `' . $this->docker . ' images -q -f "dangling=true"`';
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

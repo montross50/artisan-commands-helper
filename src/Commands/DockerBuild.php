@@ -39,6 +39,6 @@ class DockerBuild extends BaseCommand
         $options = implode(" ", $arguments);
         $cmd = $this->dockerCompose . ' build '.$options;
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

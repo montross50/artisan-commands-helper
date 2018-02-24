@@ -2,21 +2,21 @@
 
 namespace Montross50\ArtisanCommandsHelper\Commands;
 
-class DockerSeed extends BaseCommand
+class ComposerDumpAutoload extends BaseCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'seed';
+    protected $signature = 'dump';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Seed your database';
+    protected $description = 'Composer dump autoload in the php workspace container';
 
     /**
      * Create a new command instance.
@@ -36,7 +36,7 @@ class DockerSeed extends BaseCommand
     public function handle()
     {
         $container = config('ach.php_container');
-        $cmd = $this->dockerCompose . ' exec ' . $container . ' php artisan migrate db:seed';
+        $cmd = $this->dockerCompose . ' exec ' . $container . ' ' . $this->composer . ' dump-autoload';
         $this->info('Running: '.$cmd);
         $this->line($this->runCommand($cmd));
     }

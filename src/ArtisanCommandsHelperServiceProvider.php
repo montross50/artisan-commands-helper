@@ -3,6 +3,9 @@
 namespace Montross50\ArtisanCommandsHelper;
 
 use Illuminate\Support\ServiceProvider;
+use Montross50\ArtisanCommandsHelper\Commands\ComposerDumpAutoload;
+use Montross50\ArtisanCommandsHelper\Commands\ComposerInstall;
+use Montross50\ArtisanCommandsHelper\Commands\ComposerUpdate;
 use Montross50\ArtisanCommandsHelper\Commands\DockerBuild;
 use Montross50\ArtisanCommandsHelper\Commands\DockerClean;
 use Montross50\ArtisanCommandsHelper\Commands\DockerCleanImages;
@@ -44,6 +47,9 @@ class ArtisanCommandsHelperServiceProvider extends ServiceProvider
                 DockerRun::class,
                 DockerSeed::class,
                 DockerStop::class,
+                ComposerDumpAutoload::class,
+                ComposerInstall::class,
+                ComposerUpdate::class
             ]);
         }
     }

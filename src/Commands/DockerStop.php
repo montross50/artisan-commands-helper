@@ -37,6 +37,6 @@ class DockerStop extends BaseCommand
     {
         $cmd = $this->dockerCompose . ' stop';
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

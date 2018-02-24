@@ -40,6 +40,6 @@ class DockerMigrate extends BaseCommand
         $sub = $sub != "" ? ":$sub" : "" ;
         $cmd = $this->dockerCompose . ' exec ' . $container . ' php artisan migrate'.$sub;
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

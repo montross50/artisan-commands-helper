@@ -146,6 +146,42 @@ class CommandTests extends TestCase
         $result = $this->artisan('ach:run', ['--d'=>'false']);
         $this->assertEquals('Running: /bin/echo up up', trim(str_replace("\n", "", $result->fetch())));
     }
+
+    /** @test */
+    public function composer_dump_autoload()
+    {
+        $result = $this->artisan('ach:dump');
+        $this->assertEquals('Running: /bin/echo exec workspace /bin/echo dump-autoload exec workspace /bin/echo dump-autoload', trim(str_replace("\n", " ", $result->fetch())));
+    }
+
+    /** @test */
+    public function composer_install_no_options()
+    {
+        $result = $this->artisan('ach:install');
+        $this->assertEquals('Running: /bin/echo exec workspace /bin/echo install exec workspace /bin/echo install', trim(str_replace("\n", "", $result->fetch())));
+    }
+
+    /** @test */
+    public function composer_install_with_options()
+    {
+        $result = $this->artisan('ach:install', ['options'=>['foo','bar']]);
+        $this->assertEquals('Running: /bin/echo exec workspace /bin/echo install foo bar exec workspace /bin/echo install foo bar', trim(str_replace("\n", " ", $result->fetch())));
+    }
+
+    /** @test */
+    public function composer_update_no_options()
+    {
+        $result = $this->artisan('ach:update');
+        $this->assertEquals('Running: /bin/echo exec workspace /bin/echo update exec workspace /bin/echo update', trim(str_replace("\n", "", $result->fetch())));
+    }
+
+    /** @test */
+    public function composer_update_with_options()
+    {
+        $result = $this->artisan('ach:update', ['options'=>['foo','bar']]);
+        $this->assertEquals('Running: /bin/echo exec workspace /bin/echo update foo bar exec workspace /bin/echo update foo bar', trim(str_replace("\n", " ", $result->fetch())));
+    }
+
     /**
      * Call artisan command and return output.
      *

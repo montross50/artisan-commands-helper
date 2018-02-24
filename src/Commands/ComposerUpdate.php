@@ -2,21 +2,21 @@
 
 namespace Montross50\ArtisanCommandsHelper\Commands;
 
-class DockerSeed extends BaseCommand
+class ComposerUpdate extends BaseCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'seed';
+    protected $signature = 'update {options?*}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Seed your database';
+    protected $description = 'Composer updates in the php workspace container';
 
     /**
      * Create a new command instance.
@@ -35,8 +35,10 @@ class DockerSeed extends BaseCommand
      */
     public function handle()
     {
+        $arguments = $this->argument('options');
+        $options = implode(" ", $arguments);
         $container = config('ach.php_container');
-        $cmd = $this->dockerCompose . ' exec ' . $container . ' php artisan migrate db:seed';
+        $cmd = $this->dockerCompose . ' exec ' . $container . ' ' . $this->composer . ' update '.$options;
         $this->info('Running: '.$cmd);
         $this->line($this->runCommand($cmd));
     }

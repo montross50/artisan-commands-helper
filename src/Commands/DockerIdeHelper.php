@@ -39,15 +39,15 @@ class DockerIdeHelper extends BaseCommand
         $options = config('ach.ide_helper_models_options');
         $cmd = $this->dockerCompose . ' exec ' . $container . ' php artisan ide-helper:generate';
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
 
         $cmd =  $this->dockerCompose . ' exec ' . $container . ' php artisan ide-helper:meta';
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
 
 
         $cmd = $this->dockerCompose . ' exec ' . $container . ' php artisan ide-helper:models '.$options;
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

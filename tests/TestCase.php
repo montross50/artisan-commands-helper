@@ -15,6 +15,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         putenv('ACH_DOCKER_PATH=/bin/echo');
         putenv('ACH_DOCKER_COMPOSE_PATH=/bin/echo');
+        putenv('ACH_COMPOSER_PATH=/bin/echo');
         parent::setUp();
     }
 }

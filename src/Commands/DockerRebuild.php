@@ -37,6 +37,6 @@ class DockerRebuild extends BaseCommand
     {
         $cmd = $this->dockerCompose . ' up -d --build';
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

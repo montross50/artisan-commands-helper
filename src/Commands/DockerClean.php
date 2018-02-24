@@ -39,6 +39,6 @@ class DockerClean extends BaseCommand
         $options = implode(" ", $arguments);
         $cmd = $this->dockerCompose . ' rm '.$options;
         $this->info('Running: '.$cmd);
-        $this->line(shell_exec($cmd));
+        $this->line($this->runCommand($cmd));
     }
 }

@@ -15,18 +15,20 @@ composer require montross50/artisan-commands-helper
 
 ## Available Commands
 
-```$xslt
+```
   ach:build            Builds the containers with docker compose
   ach:clean            Cleans up the containers with docker compose
   ach:clean-images     Removes dangling images with docker
+  ach:dump             Composer dump autoload in the php workspace container
   ach:ide-helper       Runs the ide-helper in the php workspace container
+  ach:install          Composer installs in the php workspace container
   ach:migrate          Migrate the database
   ach:rebuild          Spins up the containers with docker compose and rebuild them
   ach:run              Spins up the containers with docker compose (alias for up)
   ach:seed             Seed your database
   ach:stop             Stops the containers with docker compose
   ach:up               Spins up the containers with docker compose
-
+  ach:update           Composer updates in the php workspace container
 ```
 
 ## Environment configuration
@@ -37,6 +39,8 @@ There are several environment variables you can add to your .env that will allow
     * Path to docker executable
 * ACH_DOCKER_COMPOSE_PATH = docker-compose
     * Path to docker-compose executable
+* ACH_COMPOSER_PATH = composer
+    * Path to composer executable
 * ACH_NAMESPACE = ach 
     * Namespace that commands resolve at via artisan ie ach:up. Just in case you have something on that namespace
 * ACH_PHP_CONTAINER = workspace
