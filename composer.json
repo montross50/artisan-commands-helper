@@ -6,7 +6,7 @@
         "Artisan",
         "docker",
         "laravel",
-        "laravel 5.6"
+        "laravel 5.7"
     ],
     "homepage": "https://github.com/montross50/artisan-commands-helper",
     "license": "MIT",
@@ -17,7 +17,7 @@
     }],
     "require": {
         "php": "~5.6|~7.0",
-        "Illuminate/support": "^5.0,<5.7"
+        "Illuminate/support": "^5.0,<5.8"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.1",
