@@ -11,11 +11,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         return [ArtisanCommandsHelperServiceProvider::class];
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         putenv('ACH_DOCKER_PATH=/bin/echo');
         putenv('ACH_DOCKER_COMPOSE_PATH=/bin/echo');
         putenv('ACH_COMPOSER_PATH=/bin/echo');
         parent::setUp();
     }
+
+
 }
