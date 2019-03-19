@@ -5,7 +5,6 @@ use Montross50\ArtisanCommandsHelper\ArtisanCommandsHelperServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-
     protected function getPackageProviders($app)
     {
         return [ArtisanCommandsHelperServiceProvider::class];
@@ -18,6 +17,4 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         putenv('ACH_COMPOSER_PATH=/bin/echo');
         parent::setUp();
     }
-
-
 }

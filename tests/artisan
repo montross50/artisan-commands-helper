@@ -17,7 +17,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 
 
-$app = require_once __DIR__.'/bootstrap.php';
+$app = require_once __DIR__.'/TestApp.php';
 
 
 $app->singleton(
